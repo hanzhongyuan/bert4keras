@@ -31,7 +31,7 @@ class ArticleCompletion(AutoRegressiveDecoder):
 
     def generate(self, text, n=5):
         token_ids = tokenizer.encode(text)[0][:-1]
-        results = self.beam_search([token_ids], n)  # 基于随机采样
+        results = self.beam_search([token_ids], n)  # 基于beam search生成
         # return text + tokenizer.decode(results)3
         return [text + tokenizer.decode(ids) for ids in results]
     # def generate(self, text, n=1, topp=0.95):
