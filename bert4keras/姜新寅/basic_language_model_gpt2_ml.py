@@ -33,7 +33,7 @@ class ArticleCompletion(AutoRegressiveDecoder):
         token_ids, _ = tokenizer.encode(text)
         # results = self.random_sample([token_ids], n, topp=topp)  # 基于随机采样
         # return [text + tokenizer.decode(ids) for ids in results]
-0
+
         for i in range(5, 7):
             results = self.beam_search([token_ids], i, output_topk=output_topk)
             print("beam_size = " + str(i), end="\t")
